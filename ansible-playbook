@@ -1,0 +1,7 @@
+#!/bin/bash
+docker run \
+	--rm -it \
+	-v $PWD:/ansible \
+	-v $HOME/.ssh:/root/.ssh \
+	ansible \
+	ssh-agent bash -c "ssh-add ~/.ssh/id_rsa && ansible-playbook $*"
